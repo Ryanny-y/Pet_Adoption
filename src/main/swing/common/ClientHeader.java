@@ -35,7 +35,7 @@ public class ClientHeader extends javax.swing.JPanel {
         setToolTipText("");
 
         logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        logo.setText("Logo Here");
+        logo.setText("FurHeaven");
         logo.setFocusTraversalPolicyProvider(true);
 
         nav.setOpaque(false);

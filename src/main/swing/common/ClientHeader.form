@@ -43,7 +43,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Logo Here"/>
+        <Property name="text" type="java.lang.String" value="FurHeaven"/>
         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
       </Properties>
     </Component>
