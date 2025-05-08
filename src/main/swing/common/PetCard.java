@@ -63,7 +63,7 @@ public class PetCard extends javax.swing.JPanel {
 
                 if (topFrame != null) {
                     topFrame.dispose(); // Close the frame 
-                    new ClientPetInfo();
+                    new ClientPetInfo(pet);
                 }
             }
         });

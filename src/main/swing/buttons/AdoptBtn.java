@@ -8,7 +8,7 @@ public class AdoptBtn extends JButton{
     
     public AdoptBtn(String name) {
         super("Adopt " + name);
-        setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); 
+        setFont(new java.awt.Font("Cmic Sans Ms", Font.BOLD, 16)); 
         setBorder(null);
         setBorderPainted(false);
         setFocusable(false);
