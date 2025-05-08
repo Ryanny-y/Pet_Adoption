@@ -1,8 +1,11 @@
 package main.model;
 
+import java.util.Date;
+
 public class Pet_Model {
     private String name, sex, description, image;
     private int age;
+    private Date added_at;
     
     public String getName() {
         return name;
@@ -51,4 +54,11 @@ public class Pet_Model {
         setDescription(description);
     }
     
+    public Pet_Model(String name, int age, String sex, String description, String image){
+        setName(name);
+        setAge(age);
+        setSex(sex);
+        setDescription(description);
+        setImage(image);
+    }
 }

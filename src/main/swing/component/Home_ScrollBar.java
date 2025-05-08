@@ -37,6 +37,7 @@ public class Home_ScrollBar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setOpaque(false);
         setLayout(new java.awt.GridLayout(0, 6, 20, 20));
     }// </editor-fold>//GEN-END:initComponents
 

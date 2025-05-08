@@ -1,33 +1,23 @@
-package main.view;
+package main.view.client;
 
 import java.util.ArrayList;
+import main.controller.PetController;
 import main.model.Pet_Model;
 import main.swing.component.Home_ScrollBar;
 
 public class ClientHomePage extends javax.swing.JFrame {
 
-    private ArrayList<Pet_Model> pets_list = new ArrayList<>();
+    private PetController petController = new PetController();
+    private ArrayList<Pet_Model> pets_list = petController.getAllPets();
     
     public ClientHomePage() {
         
         initComponents();
         petInit();
         setVisible(true);
-        
     }
     
     private void petInit() {
-        pets_list.add(new Pet_Model("Owenn", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen1", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen2", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen3", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen4", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen5", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen2", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen3", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen4", 4, "Male", "Some New Cat"));
-        pets_list.add(new Pet_Model("Owen5", 4, "Male", "Some New Cat"));
-        
         Home_ScrollBar petContainer = new Home_ScrollBar(pets_list);
             jScrollPane1.setViewportView(petContainer);
             jScrollPane1.getViewport().addChangeListener(e -> {
@@ -50,7 +40,6 @@ public class ClientHomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
@@ -58,6 +47,7 @@ public class ClientHomePage extends javax.swing.JFrame {
         jLabel1.setText("Adopt A Pet");
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
 
         javax.swing.GroupLayout borderPanel1Layout = new javax.swing.GroupLayout(borderPanel1);
         borderPanel1.setLayout(borderPanel1Layout);
@@ -67,9 +57,13 @@ public class ClientHomePage extends javax.swing.JFrame {
             .addComponent(clientHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(505, 505, 505))
-            .addComponent(jScrollPane1)
+                .addGroup(borderPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(505, 505, 505))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
         borderPanel1Layout.setVerticalGroup(
             borderPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
