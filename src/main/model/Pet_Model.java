@@ -3,9 +3,7 @@ package main.model;
 import java.util.Date;
 
 public class Pet_Model {
-    private String name, sex, description, image;
-    private int age;
-    private Date added_at;
+    private String name, age, sex, category, description, image, created_at;
     
     public String getName() {
         return name;
@@ -22,7 +20,15 @@ public class Pet_Model {
     public void setSex(String sex) {
         this.sex = sex;
     }
+    
+    public String getCategory() {
+        return this.category;
+    }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
     public String getDescription() {
         return description;
     }
@@ -39,26 +45,37 @@ public class Pet_Model {
         this.image = image;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
     
-    public Pet_Model(String name, int age, String sex, String description){
+    public String getCreatedAt() {
+        return created_at;
+    }
+    
+    public void setCreatedAt(String created_at) {
+        this.created_at = created_at;
+    }
+    
+    public Pet_Model(String name, String age, String sex, String description){
         setName(name);
         setAge(age);
         setSex(sex);
         setDescription(description);
     }
     
-    public Pet_Model(String name, int age, String sex, String description, String image){
+    public Pet_Model(String name, String age, String sex, String category, String description, String image, String created_at){
         setName(name);
         setAge(age);
         setSex(sex);
+        setCategory(category);
         setDescription(description);
         setImage(image);
+        setCreatedAt(created_at);
+        
     }
 }

@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JFrame;
+import main.view.client.ClientHomePage;
+import main.view.client.ClientPetsPage;
 
 public class ClientHeader extends javax.swing.JPanel {
 
@@ -30,9 +32,11 @@ public class ClientHeader extends javax.swing.JPanel {
         home_btn = new javax.swing.JButton();
         aboutus_btn = new javax.swing.JButton();
         closeBtn1 = new main.swing.buttons.CloseBtn(frame);
+        pets = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setToolTipText("");
+        setPreferredSize(new java.awt.Dimension(1200, 70));
 
         logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         logo.setText("FurHeaven");
@@ -62,15 +66,25 @@ public class ClientHeader extends javax.swing.JPanel {
         aboutus_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aboutus_btn.setFocusPainted(false);
         aboutus_btn.setFocusable(false);
+        aboutus_btn.setPreferredSize(new java.awt.Dimension(58, 25));
         aboutus_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutus_btnActionPerformed(evt);
             }
         });
 
-        closeBtn1.addActionListener(new java.awt.event.ActionListener() {
+        pets.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pets.setText("Pets");
+        pets.setBorder(null);
+        pets.setBorderPainted(false);
+        pets.setContentAreaFilled(false);
+        pets.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pets.setFocusPainted(false);
+        pets.setFocusable(false);
+        pets.setPreferredSize(new java.awt.Dimension(58, 25));
+        pets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBtn1ActionPerformed(evt);
+                petsActionPerformed(evt);
             }
         });
 
@@ -81,20 +95,28 @@ public class ClientHeader extends javax.swing.JPanel {
             .addGroup(navLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(home_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(aboutus_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(pets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                 .addComponent(closeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         navLayout.setVerticalGroup(
             navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(aboutus_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(navLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(navLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(navLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                            .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aboutus_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -126,16 +148,18 @@ public class ClientHeader extends javax.swing.JPanel {
     
     
     private void home_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btnActionPerformed
-        // TODO add your handling code here:
+        frame.dispose();
+        new ClientHomePage();
     }//GEN-LAST:event_home_btnActionPerformed
 
     private void aboutus_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutus_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutus_btnActionPerformed
 
-    private void closeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeBtn1ActionPerformed
+    private void petsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petsActionPerformed
+        frame.dispose();
+        new ClientPetsPage();
+    }//GEN-LAST:event_petsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -144,5 +168,6 @@ public class ClientHeader extends javax.swing.JPanel {
     private javax.swing.JButton home_btn;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel nav;
+    private javax.swing.JButton pets;
     // End of variables declaration//GEN-END:variables
 }
