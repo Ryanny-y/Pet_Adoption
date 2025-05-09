@@ -14,7 +14,7 @@ public class PetDao {
 //    GET ALL PETS
     public ArrayList<Pet_Model> getAllPets() {
         ArrayList<Pet_Model> pets = new ArrayList<>();
-        String query = "SELECT * FROM pets";
+        String query = "SELECT p.* FROM pets AS p LEFT JOIN adoptions AS a ON p.id = a.pet_id WHERE a.status IS NULL OR a.status NOT IN (\"approved\", \"completed\")";
 
         try (Connection con = connDb.getConnection();
             Statement stmt = con.createStatement()) {

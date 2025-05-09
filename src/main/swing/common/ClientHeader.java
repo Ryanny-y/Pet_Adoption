@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JFrame;
-import main.model.User_Model;
 import main.util.SessionManager;
 import main.view.LoginPage;
+import main.view.client.ClientAboutUsPage;
 import main.view.client.ClientHomePage;
 import main.view.client.ClientPetsPage;
 
@@ -180,6 +180,8 @@ public class ClientHeader extends javax.swing.JPanel {
 
     private void aboutus_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutus_btnActionPerformed
         // TODO add your handling code here:
+        frame.dispose();
+        new ClientAboutUsPage();
     }//GEN-LAST:event_aboutus_btnActionPerformed
 
     private void pets_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pets_btnActionPerformed
