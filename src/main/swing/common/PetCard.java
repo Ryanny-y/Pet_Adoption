@@ -4,6 +4,10 @@ import javax.swing.ImageIcon;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import main.model.Pet_Model;
 import main.view.client.ClientPetInfo;
@@ -12,6 +16,7 @@ public class PetCard extends javax.swing.JPanel {
 
     Pet_Model pet;
     ImageIcon img;
+
     public PetCard(Pet_Model pet) {
         initComponents();
         this.pet = pet;
@@ -22,7 +27,7 @@ public class PetCard extends javax.swing.JPanel {
         scaleHover();
         clickListener();
     }
-    
+
     private void scaleImage(Pet_Model pet, int d1, int d2) {
         image.setPreferredSize(new java.awt.Dimension(173, 169));
         image.setMinimumSize(new java.awt.Dimension(173, 169));
@@ -32,12 +37,23 @@ public class PetCard extends javax.swing.JPanel {
         image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         image.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
 
-        ImageIcon icon = new ImageIcon("D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\pets\\" + pet.getImage());
-
-        Image scaledImage = icon.getImage().getScaledInstance(d1, d2, Image.SCALE_SMOOTH);
-        img = new ImageIcon(scaledImage);
+        String path = "D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\pets\\" + pet.getImage();
+        try {
+            BufferedImage originalImage = ImageIO.read(new File(path));
+            if (originalImage != null) {
+                Image scaledImage = originalImage.getScaledInstance(d1, d2, Image.SCALE_SMOOTH);
+                img = new ImageIcon(scaledImage);
+            } else {
+                System.err.println("Image could not be read: " + path);
+                img = new ImageIcon(); // fallback
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to load image: " + path);
+            e.printStackTrace();
+            img = new ImageIcon(); // fallback
+        }
     }
-    
+
     private void scaleHover() {
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -53,9 +69,9 @@ public class PetCard extends javax.swing.JPanel {
             }
         });
     }
-    
+
     private void clickListener() {
-        
+
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -68,7 +84,7 @@ public class PetCard extends javax.swing.JPanel {
             }
         });
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

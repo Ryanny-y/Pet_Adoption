@@ -14,7 +14,7 @@ public class PetDao {
 //    GET ALL PETS
     public ArrayList<Pet_Model> getAllPets() {
         ArrayList<Pet_Model> pets = new ArrayList<>();
-        String query = "SELECT * FROM pets ORDER BY RAND()";
+        String query = "SELECT * FROM pets";
 
         try (Connection con = connDb.getConnection();
             Statement stmt = con.createStatement()) {
