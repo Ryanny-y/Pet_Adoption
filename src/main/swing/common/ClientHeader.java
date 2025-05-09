@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JFrame;
+import main.view.LoginPage;
 import main.view.client.ClientHomePage;
 import main.view.client.ClientPetsPage;
 
@@ -32,7 +33,8 @@ public class ClientHeader extends javax.swing.JPanel {
         home_btn = new javax.swing.JButton();
         aboutus_btn = new javax.swing.JButton();
         closeBtn1 = new main.swing.buttons.CloseBtn(frame);
-        pets = new javax.swing.JButton();
+        pets_btn = new javax.swing.JButton();
+        login_btn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setToolTipText("");
@@ -73,18 +75,33 @@ public class ClientHeader extends javax.swing.JPanel {
             }
         });
 
-        pets.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pets.setText("Pets");
-        pets.setBorder(null);
-        pets.setBorderPainted(false);
-        pets.setContentAreaFilled(false);
-        pets.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pets.setFocusPainted(false);
-        pets.setFocusable(false);
-        pets.setPreferredSize(new java.awt.Dimension(58, 25));
-        pets.addActionListener(new java.awt.event.ActionListener() {
+        pets_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pets_btn.setText("Pets");
+        pets_btn.setBorder(null);
+        pets_btn.setBorderPainted(false);
+        pets_btn.setContentAreaFilled(false);
+        pets_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pets_btn.setFocusPainted(false);
+        pets_btn.setFocusable(false);
+        pets_btn.setPreferredSize(new java.awt.Dimension(58, 25));
+        pets_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petsActionPerformed(evt);
+                pets_btnActionPerformed(evt);
+            }
+        });
+
+        login_btn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        login_btn.setText("Login");
+        login_btn.setBorder(null);
+        login_btn.setBorderPainted(false);
+        login_btn.setContentAreaFilled(false);
+        login_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        login_btn.setFocusPainted(false);
+        login_btn.setFocusable(false);
+        login_btn.setPreferredSize(new java.awt.Dimension(58, 25));
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnActionPerformed(evt);
             }
         });
 
@@ -98,8 +115,10 @@ public class ClientHeader extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(aboutus_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(pets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addComponent(pets_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(closeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -114,8 +133,9 @@ public class ClientHeader extends javax.swing.JPanel {
                         .addGap(23, 23, 23)
                         .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(home_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(aboutus_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pets_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aboutus_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(login_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -156,18 +176,24 @@ public class ClientHeader extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutus_btnActionPerformed
 
-    private void petsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petsActionPerformed
+    private void pets_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pets_btnActionPerformed
         frame.dispose();
         new ClientPetsPage();
-    }//GEN-LAST:event_petsActionPerformed
+    }//GEN-LAST:event_pets_btnActionPerformed
+
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+        frame.dispose();
+        new LoginPage();
+    }//GEN-LAST:event_login_btnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutus_btn;
     private main.swing.buttons.CloseBtn closeBtn1;
     private javax.swing.JButton home_btn;
+    private javax.swing.JButton login_btn;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel nav;
-    private javax.swing.JButton pets;
+    private javax.swing.JButton pets_btn;
     // End of variables declaration//GEN-END:variables
 }
