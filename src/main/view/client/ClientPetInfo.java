@@ -46,12 +46,11 @@ public class ClientPetInfo extends javax.swing.JFrame {
         pet_age = new javax.swing.JLabel();
         pet_sex = new javax.swing.JLabel();
         pet_desc = new javax.swing.JLabel();
-        adoptBtn1 = new main.swing.buttons.AdoptBtn(pet.getName());
+        adoptBtn1 = new main.swing.buttons.AdoptBtn(pet.getName(), pet.getId());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Pet_Info"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
 
         borderPanel1.setPreferredSize(new java.awt.Dimension(1200, 700));

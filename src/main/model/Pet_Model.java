@@ -3,7 +3,12 @@ package main.model;
 import java.util.Date;
 
 public class Pet_Model {
+    private int id;
     private String name, age, sex, category, description, image, created_at;
+   
+    public int getId() {
+        return id;
+    }
     
     public String getName() {
         return name;
@@ -61,14 +66,8 @@ public class Pet_Model {
         this.created_at = created_at;
     }
     
-    public Pet_Model(String name, String age, String sex, String description){
-        setName(name);
-        setAge(age);
-        setSex(sex);
-        setDescription(description);
-    }
-    
-    public Pet_Model(String name, String age, String sex, String category, String description, String image, String created_at){
+    public Pet_Model(int id, String name, String age, String sex, String category, String description, String image, String created_at){
+        this.id = id;
         setName(name);
         setAge(age);
         setSex(sex);

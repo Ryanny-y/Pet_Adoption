@@ -10,17 +10,19 @@ import main.model.Pet_Model;
 public class PetDao {
     
     private ConnDB connDb = ConnDB.getInstance();
-    private Connection con = connDb.getConnection();
     
+//    GET ALL PETS
     public ArrayList<Pet_Model> getAllPets() {
         ArrayList<Pet_Model> pets = new ArrayList<>();
         String query = "SELECT * FROM pets ORDER BY RAND()";
 
-        try {
-            Statement stmt = con.createStatement();
+        try (Connection con = connDb.getConnection();
+            Statement stmt = con.createStatement()) {
+           
             ResultSet rs = stmt.executeQuery(query);
             
             while(rs.next()) {
+                int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String age = rs.getString("age");
                 String sex = rs.getString("sex");
@@ -29,7 +31,7 @@ public class PetDao {
                 String image = rs.getString("image");
                 String created_at = rs.getString("created_at");
                 
-                Pet_Model pet = new Pet_Model(name, age, sex, category, description, image, created_at);
+                Pet_Model pet = new Pet_Model(id, name, age, sex, category, description, image, created_at);
                 pets.add(pet);
             }
             
@@ -40,4 +42,9 @@ public class PetDao {
             return new ArrayList<>();
         } 
     }
+
+//    ADD PET
+    
+    
+//    DELETE PET
 }

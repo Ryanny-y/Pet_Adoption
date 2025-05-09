@@ -11,18 +11,18 @@ import main.util.SessionManager;
 
 public class UserDao {
     private final ConnDB connDB = ConnDB.getInstance();
-    private final Connection con = connDB.getConnection();
     
 //    LOGIN
     public void loginUser(String email, String password) {
         String query = "SELECT * FROM users WHERE email = ? && password = ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
+        try (Connection con = connDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()) {
+                int id = rs.getInt("id");
                 String f_name = rs.getString("first_name");
                 String m_name = rs.getString("middle_name");
                 String l_name = rs.getString("last_name");
@@ -30,7 +30,7 @@ public class UserDao {
                 String role = rs.getString("role");
                 String pass = rs.getString("password");
                 
-                User_Model user = new User_Model(f_name, m_name, l_name, email_res, role, pass);
+                User_Model user = new User_Model(id, f_name, m_name, l_name, email_res, role, pass);
                 SessionManager.clearSession();
                 if(!SessionManager.isLoggedIn()) {
                     SessionManager.setCurrentUser(user);
@@ -44,8 +44,9 @@ public class UserDao {
 //    REGISTER
     public boolean createUser(User_Model user) {
         String query = "INSERT INTO users(first_name, middle_name, last_name, email, role, password) VALUES (?, ?, ?, ?, ?, ?)";
-        try {
-            PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        
+        try ( Connection con = connDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getFirst_name());
             ps.setString(2, user.getMiddle_name());
             ps.setString(3, user.getLast_name());
