@@ -3,16 +3,13 @@ package main.swing.buttons;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import main.controller.UserController;
-import main.model.User_Model;
 import main.util.SessionManager;
-import main.view.LoginPage;
 import main.view.client.ClientHomePage;
 
 public class LoginBtn extends JButton{

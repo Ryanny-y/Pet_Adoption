@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JFrame;
+import main.model.User_Model;
+import main.util.SessionManager;
 import main.view.LoginPage;
 import main.view.client.ClientHomePage;
 import main.view.client.ClientPetsPage;
@@ -17,6 +19,10 @@ public class ClientHeader extends javax.swing.JPanel {
         setOpaque(false);
         this.frame = frame;
         initComponents();
+        
+        if(SessionManager.isLoggedIn()) {
+           login_btn.setVisible(false);
+        }
     }
     
     public ClientHeader() {

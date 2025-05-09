@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import main.view.client.ClientRegisterPage;
 
 public class LoginPage extends javax.swing.JFrame {
 
@@ -71,7 +72,9 @@ public class LoginPage extends javax.swing.JFrame {
         password_label = new javax.swing.JLabel();
         pass_field = new javax.swing.JPasswordField();
         loginBtn1 = new main.swing.buttons.LoginBtn(email_field, pass_field);
-        closeBtn1 = new main.swing.buttons.CloseBtn();
+        closeBtn1 = new main.swing.buttons.CloseBtn(this);
+        jLabel1 = new javax.swing.JLabel();
+        signup_btn = new javax.swing.JButton();
 
         javax.swing.GroupLayout loginBg1Layout = new javax.swing.GroupLayout(loginBg1);
         loginBg1.setLayout(loginBg1Layout);
@@ -108,9 +111,18 @@ public class LoginPage extends javax.swing.JFrame {
         pass_field.setText("some password");
         pass_field.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
-        closeBtn1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Don't have an account?");
+
+        signup_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        signup_btn.setText("Signup here");
+        signup_btn.setBorder(null);
+        signup_btn.setBorderPainted(false);
+        signup_btn.setContentAreaFilled(false);
+        signup_btn.setFocusPainted(false);
+        signup_btn.setFocusable(false);
+        signup_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBtn1ActionPerformed(evt);
+                signup_btnActionPerformed(evt);
             }
         });
 
@@ -132,8 +144,14 @@ public class LoginPage extends javax.swing.JFrame {
                             .addComponent(pass_field)))
                     .addGroup(loginBg2Layout.createSequentialGroup()
                         .addGap(421, 421, 421)
-                        .addComponent(loginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(309, Short.MAX_VALUE))
+                        .addGroup(loginBg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(loginBg2Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(signup_btn)))))
+                .addContainerGap(316, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginBg2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(closeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,7 +174,11 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(pass_field, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(loginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(loginBg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(signup_btn))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,8 +187,7 @@ public class LoginPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(loginBg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(loginBg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,19 +201,23 @@ public class LoginPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtn1ActionPerformed
+    private void signup_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_closeBtn1ActionPerformed
+        this.dispose();
+        new ClientRegisterPage();
+    }//GEN-LAST:event_signup_btnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private main.swing.buttons.CloseBtn closeBtn1;
     private javax.swing.JTextField email_field;
     private javax.swing.JLabel email_label;
+    private javax.swing.JLabel jLabel1;
     private main.swing.component.LoginBg loginBg1;
     private main.swing.component.LoginBg loginBg2;
     private main.swing.buttons.LoginBtn loginBtn1;
     private javax.swing.JLabel login_Header;
     private javax.swing.JPasswordField pass_field;
     private javax.swing.JLabel password_label;
+    private javax.swing.JButton signup_btn;
     // End of variables declaration//GEN-END:variables
 }

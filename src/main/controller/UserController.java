@@ -11,8 +11,9 @@ public class UserController {
         userDao.loginUser(email, password);
     }
     
-    public void registerUser(String f_name, String m_name, String l_name, String email, String password ) {
+    public boolean registerUser(String f_name, String m_name, String l_name, String email, String password ) {
         User_Model newUser = new User_Model(f_name, m_name, l_name, email, "customer", password);
-        userDao.createUser(newUser);
+        return userDao.createUser(newUser);
     }
+    
 }

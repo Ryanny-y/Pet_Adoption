@@ -42,7 +42,7 @@ public class UserDao {
     }
     
 //    REGISTER
-    public void createUser(User_Model user) {
+    public boolean createUser(User_Model user) {
         String query = "INSERT INTO users(first_name, middle_name, last_name, email, role, password) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -53,10 +53,13 @@ public class UserDao {
             ps.setString(5, user.getRole());
             ps.setString(6, user.getPassword());
             
-            ps.executeUpdate();
+            int rowsAffected = ps.executeUpdate();
+            if(rowsAffected > 0) {
+                return true;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return false;
     }
 }
