@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 
 public class HeroBg extends javax.swing.JPanel {
     
-    Image img = Toolkit.getDefaultToolkit().getImage("D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\home_bg.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("src/resources/images/home_bg.jpg");
     
     public HeroBg() {
         setOpaque(false);

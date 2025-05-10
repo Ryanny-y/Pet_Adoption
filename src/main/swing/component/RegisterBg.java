@@ -12,7 +12,7 @@ import java.awt.Shape;
 import java.awt.Toolkit;
 
 public class RegisterBg extends javax.swing.JPanel {
-Image img = Toolkit.getDefaultToolkit().getImage("D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\register_bg.jpg");
+Image img = Toolkit.getDefaultToolkit().getImage("src/resources/images/register_bg.jpg");
 
     public RegisterBg() {
         setOpaque(false);

@@ -9,7 +9,7 @@ import java.awt.Toolkit;
 
 public class AboutUsBg extends javax.swing.JPanel {
 
-    Image img = Toolkit.getDefaultToolkit().getImage("D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\about_us_bg.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("src/resources/images/about_us_bg.jpg");
 
     public AboutUsBg() {
         setOpaque(false);

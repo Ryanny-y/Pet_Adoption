@@ -37,7 +37,7 @@ public class PetCard extends javax.swing.JPanel {
         image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         image.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
 
-        String path = "D:\\apache workspace\\Pet_Adoption\\src\\resources\\images\\pets\\" + pet.getImage();
+        String path = "src/resources/images/pets/" + pet.getImage();
         try {
             BufferedImage originalImage = ImageIO.read(new File(path));
             if (originalImage != null) {
