@@ -33,7 +33,7 @@ public class SignupBtn extends JButton{
             String pass = String.valueOf(passField.getPassword());
             String confirmPass = String.valueOf(confirmField.getPassword());
             
-            if(fName.isBlank() || mName.isBlank() || lName.isBlank() || email.isBlank() || pass.isBlank() || confirmPass.isBlank()) {
+            if(fName.isBlank() || fName.equals("Ryanny") || mName.isBlank() || mName.equals("Manjares") || lName.equals("Romero") || lName.isBlank() || email.isBlank() || email.equals("ryanny@@gmail.com") || pass.isBlank() || pass.equals("passwordhere") || confirmPass.isBlank()) {
                 JOptionPane.showMessageDialog(null, "All Fields Are Required!", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
